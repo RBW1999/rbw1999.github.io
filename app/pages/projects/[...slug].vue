@@ -3,8 +3,8 @@ const route = useRoute();
 
 const { data: project } = await useAsyncData(() =>
   queryCollection("projects")
-    .where("_path", "=", `/projects/${route.params.slug}`)
-    .first()
+    .path(`/projects/${route.params.slug}`)
+    .first(),
 );
 
 if (!project.value) {
@@ -29,14 +29,25 @@ const formattedDate = computed(() => {
 <template>
   <div v-if="project">
     <!-- Project Hero -->
-    <section class="border-b border-border">
+    <section class="border-b">
       <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
         <NuxtLink
           to="/"
           class="inline-flex items-center gap-1 text-sm text-text-muted hover:text-primary transition-colors"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
           Back to projects
         </NuxtLink>
@@ -52,9 +63,15 @@ const formattedDate = computed(() => {
             </span>
           </div>
 
-          <h1 class="text-3xl font-bold text-text sm:text-4xl">{{ project.title }}</h1>
-          <p class="mt-2 text-lg text-primary font-medium">{{ project.headline }}</p>
-          <p v-if="formattedDate" class="mt-2 text-sm text-text-muted">{{ formattedDate }}</p>
+          <h1 class="text-3xl font-bold text-text sm:text-4xl">
+            {{ project.title }}
+          </h1>
+          <p class="mt-2 text-lg text-primary font-medium">
+            {{ project.headline }}
+          </p>
+          <p v-if="formattedDate" class="mt-2 text-sm text-text-muted">
+            {{ formattedDate }}
+          </p>
         </div>
       </div>
     </section>
