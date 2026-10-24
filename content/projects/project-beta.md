@@ -3,12 +3,10 @@ title: "Project Beta"
 headline: "E-commerce platform reimagined"
 description: "A headless e-commerce solution with sub-second page loads, personalized recommendations, and seamless checkout."
 tags: [ecommerce, nuxt, headless, performance]
-image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"
+image: "/assets/project-dashboard.png"
 hidden: false
 date: "2026-06-20"
 ---
-
-# Project Beta
 
 Project Beta is a headless e-commerce platform that proves you don't have to sacrifice performance for functionality.
 
