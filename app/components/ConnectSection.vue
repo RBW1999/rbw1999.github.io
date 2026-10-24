@@ -1,15 +1,12 @@
 <script setup lang="ts">
 const site = useAppConfig().site;
-
-const pillClass =
-  "h-auto min-h-[42px] rounded-full border-[0.5px] border-white px-5 py-[10px] text-base font-normal leading-[normal] hover:bg-accent hover:text-black focus-visible:bg-accent focus-visible:text-black";
 </script>
 
 <template>
   <section
     id="contact"
     aria-labelledby="contact-title"
-    class="relative mx-auto flex w-[min(940px,calc(100%_-_48px))] flex-col border-y-[0.5px] border-white py-[30px] max-[760px]:w-[calc(100%_-_24px)]"
+    class="page-container relative flex flex-col border-y-[0.5px] border-white py-[30px]"
   >
     <h2
       id="contact-title"
@@ -26,13 +23,13 @@ const pillClass =
         work, or just to say hi.
       </p>
 
-      <div class="flex gap-[10px]">
+      <div class="connect-actions flex gap-[10px]">
         <UButton
           :to="`mailto:${site.email}`"
           variant="ghost"
           color="neutral"
           label="Mail"
-          :class="pillClass"
+          class="pill"
         />
         <UButton
           :to="site.github"
@@ -41,9 +38,28 @@ const pillClass =
           variant="ghost"
           color="neutral"
           label="GitHub"
-          :class="pillClass"
+          class="pill"
         />
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+.connect-actions :deep(.pill) {
+  height: auto;
+  min-height: 42px;
+  border-radius: 9999px;
+  border: 0.5px solid #fff;
+  padding: 10px 1.25rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.connect-actions :deep(.pill:hover),
+.connect-actions :deep(.pill:focus-visible) {
+  background-color: var(--color-accent);
+  color: #000;
+}
+</style>
