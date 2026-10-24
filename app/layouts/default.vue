@@ -1,10 +1,7 @@
-<script setup lang="ts">
-</script>
-
 <template>
-  <div class="flex min-h-screen flex-col">
+  <div class="flex min-h-dvh flex-col py-5 max-[760px]:pt-3">
     <SiteHeader />
-    <main class="flex-1">
+    <main>
       <slot />
     </main>
     <SiteFooter />
