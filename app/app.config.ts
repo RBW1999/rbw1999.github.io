@@ -7,7 +7,7 @@ export default defineAppConfig({
   },
   site: {
     name: "Rafael Wortmann",
-    email: "hello@example.com",
+    email: "rabe.wortmann@gmail.com",
     github: "https://github.com/RBW1999",
     linkedin: "https://www.linkedin.com/in/rafael-wortmann-81655b139/",
     itch: "https://rafaelwortmann.itch.io/",
