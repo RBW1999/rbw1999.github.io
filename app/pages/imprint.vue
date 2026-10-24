@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const site = useAppConfig().site;
+
 useSeoMeta({
   title: "Imprint — rbw1999",
   description: "Legal information and imprint for rbw1999",
@@ -6,9 +8,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div
-    class="mx-auto w-[min(940px,calc(100%_-_48px))] py-12 max-[760px]:w-[calc(100%_-_24px)] max-[760px]:py-8"
-  >
+  <div class="page-container py-12 max-[760px]:py-8">
     <NuxtLink
       to="/"
       class="inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-accent"
@@ -24,21 +24,24 @@ useSeoMeta({
     >
       <h2>Information according to § 5 TMG</h2>
       <p>
-        Rafael Wortmann<br />
-        [Street Address]<br />
-        [City, Postal Code]<br />
-        Germany
+        {{ site.name }}<br />
+        {{ site.address.street }}<br />
+        {{ site.address.city }}<br />
+        {{ site.address.country }}
       </p>
 
       <h2>Contact</h2>
-      <p>Email: [your-email@example.com]</p>
+      <p>
+        Email:
+        <a :href="`mailto:${site.email}`">{{ site.email }}</a>
+      </p>
 
       <h2>Responsible for content according to § 55 Abs. 2 RStV</h2>
       <p>
-        Rafael Wortmann<br />
-        [Street Address]<br />
-        [City, Postal Code]<br />
-        Germany
+        {{ site.name }}<br />
+        {{ site.address.street }}<br />
+        {{ site.address.city }}<br />
+        {{ site.address.country }}
       </p>
 
       <h2>Disclaimer</h2>
