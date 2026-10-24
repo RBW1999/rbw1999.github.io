@@ -22,8 +22,12 @@ const socials = [
     <p class="m-0">© {{ currentYear }} Rafael Wortmann</p>
 
     <div class="flex gap-[23px] max-[450px]:order-3 max-[450px]:w-full">
-      <NuxtLink to="/imprint">Imprint</NuxtLink>
-      <NuxtLink to="/about">About</NuxtLink>
+      <NuxtLink to="/imprint" class="transition-colors hover:text-accent">
+        Imprint
+      </NuxtLink>
+      <NuxtLink to="/about" class="transition-colors hover:text-accent">
+        About
+      </NuxtLink>
     </div>
 
     <div class="flex items-center gap-[15px]">
@@ -35,7 +39,7 @@ const socials = [
         rel="noopener noreferrer"
         :aria-label="social.label"
         :title="social.label"
-        class="flex size-[22px] items-center justify-center rounded-full bg-[#d9d9d9] text-black transition-opacity hover:opacity-80"
+        class="flex size-[22px] items-center justify-center rounded-full bg-[#d9d9d9] text-black transition-colors hover:bg-accent"
       >
         <UIcon :name="social.icon" class="size-[14px]" />
       </a>
