@@ -1,1 +1,47 @@
 @import "tailwindcss";
+@import "@nuxt/ui";
+
+@source "../../../content/**/*";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+
+  --color-accent: #30e5c1;
+  --color-hairline: #606060;
+  --color-card: #0d0d0d;
+  --color-surface: #0d0d0d;
+}
+
+:root {
+  --ui-primary: #30e5c1;
+  --ui-radius: 0.5rem;
+}
+
+.dark {
+  --ui-primary: #30e5c1;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: var(--font-sans);
+    line-height: normal;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #000;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
