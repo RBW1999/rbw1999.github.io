@@ -40,7 +40,7 @@ const formattedDate = computed(() => {
     class="page-container py-12 max-[760px]:py-8"
   >
     <NuxtLink
-      to="/#projects"
+      to="/projects"
       class="inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-accent"
     >
       <UIcon name="i-lucide-arrow-left" class="size-4" />
