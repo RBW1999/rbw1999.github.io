@@ -3,7 +3,7 @@
     <div class="sticky top-0 z-50 pt-5 max-[760px]:pt-3">
       <SiteHeader />
     </div>
-    <main>
+    <main class="flex-1">
       <slot />
     </main>
     <SiteFooter />
