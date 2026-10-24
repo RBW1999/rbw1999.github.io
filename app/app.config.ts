@@ -10,6 +10,7 @@ export default defineAppConfig({
     email: "rabe.wortmann@gmail.com",
     github: "https://github.com/RBW1999",
     linkedin: "https://www.linkedin.com/in/rafael-wortmann-81655b139/",
+    artstation: "https://www.artstation.com/rafaelwortmann",
     itch: "https://rafaelwortmann.itch.io/",
     address: {
       street: "[Street Address]",

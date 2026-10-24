@@ -8,11 +8,11 @@
       aria-label="Main navigation"
       class="relative flex gap-[40px] max-[760px]:gap-[15px]"
     >
-      <NuxtLink to="/#projects">Projects</NuxtLink>
-      <NuxtLink to="/#experience" class="max-[450px]:hidden">
+      <NuxtLink to="/projects">Projects</NuxtLink>
+      <NuxtLink to="/experience" class="max-[450px]:hidden">
         Experience
       </NuxtLink>
-      <NuxtLink to="/#about">About</NuxtLink>
+      <NuxtLink to="/about">About</NuxtLink>
     </nav>
   </header>
 </template>
