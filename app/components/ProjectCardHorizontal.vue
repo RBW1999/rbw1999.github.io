@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <article
-    class="relative flex min-h-[240px] min-w-0 overflow-hidden rounded-[20px] border-[0.5px] border-hairline max-[760px]:min-h-0 max-[760px]:flex-col"
+    class="relative flex h-[240px] min-w-0 overflow-hidden rounded-[20px] border-[0.5px] border-hairline max-[760px]:h-auto max-[760px]:flex-col"
   >
     <div
       class="relative w-[38%] shrink-0 overflow-hidden max-[760px]:h-[200px] max-[760px]:w-full"
@@ -43,9 +43,9 @@ defineProps<{
     <NuxtLink
       :to="project.path"
       :aria-label="`Read more about ${project.title}`"
-      class="absolute top-[15px] right-[15px] flex size-[36px] items-center justify-center rounded-full border-[0.5px] border-hairline bg-black/40 text-white backdrop-blur-sm transition-colors hover:border-accent hover:bg-accent hover:text-black"
+      class="absolute top-[15px] right-[15px] flex items-center justify-center text-white transition-colors hover:text-accent"
     >
-      <UIcon name="i-lucide-arrow-up-right" class="size-[16px]" />
+      <UIcon name="i-lucide-arrow-up-right" class="size-[32px]" />
     </NuxtLink>
   </article>
 </template>

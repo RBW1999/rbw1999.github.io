@@ -1,10 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
   tags: string[];
 }>();
-
-const visibleTags = computed(() => props.tags.slice(0, 3));
-const hasMore = computed(() => props.tags.length > 3);
 
 function tagColorClass(tag: string) {
   const normalized = tag.toLowerCase().trim();
@@ -30,17 +27,14 @@ function tagColorClass(tag: string) {
 </script>
 
 <template>
-  <div class="flex h-[22px] min-w-0 gap-[10px] overflow-hidden">
+  <div class="flex min-w-0 flex-wrap gap-[10px]">
     <span
-      v-for="tag in visibleTags"
+      v-for="tag in tags"
       :key="tag"
       class="tag"
       :class="tagColorClass(tag)"
     >
       {{ tag }}
-    </span>
-    <span v-if="hasMore" class="tag tag--gray">
-      ...
     </span>
   </div>
 </template>

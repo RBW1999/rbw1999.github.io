@@ -22,7 +22,7 @@ defineProps<{
       />
       <NuxtLink
         :to="project.path"
-        class="absolute bottom-[10px] left-[15px] z-[1] text-2xl leading-[normal] font-semibold text-white [text-shadow:0_4px_4px_rgba(0,0,0,0.5)]"
+        class="absolute bottom-[10px] left-[15px] z-[1] text-2xl leading-[normal] font-semibold text-white transition-colors hover:text-accent [text-shadow:0_4px_4px_rgba(0,0,0,0.5)]"
       >
         {{ project.title }}
       </NuxtLink>
@@ -36,13 +36,13 @@ defineProps<{
       <div
         class="flex items-center justify-between gap-[10px] max-[450px]:flex-col max-[450px]:items-start"
       >
-        <ProjectTags :tags="project.tags" />
+        <ProjectTags :tags="project.tags" class="min-w-0 flex-1" />
         <NuxtLink
           :to="project.path"
-          class="flex items-center gap-[10px] whitespace-nowrap underline"
+          class="flex shrink-0 items-center gap-[10px] whitespace-nowrap underline transition-colors hover:text-accent"
         >
           Read More
-          <UIcon name="i-lucide-arrow-up-right" class="size-[13px]" />
+          <UIcon name="i-lucide-arrow-up-right" class="size-[26px]" />
         </NuxtLink>
       </div>
     </div>
