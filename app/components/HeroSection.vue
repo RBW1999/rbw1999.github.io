@@ -11,12 +11,6 @@ withDefaults(
     roleSecondary: "UX / UI Designer",
   },
 );
-
-const toast = useToast();
-
-function openXr() {
-  toast.add({ title: "XR experience coming soon." });
-}
 </script>
 
 <template>
@@ -41,20 +35,13 @@ function openXr() {
         </span>
       </h1>
 
-      <div class="hero-actions flex gap-[10px] max-[450px]:flex-col">
+      <div class="hero-actions flex gap-[10px]">
         <UButton
           to="#contact"
           variant="ghost"
           color="neutral"
           label="contact"
           class="pill"
-        />
-        <UButton
-          variant="ghost"
-          color="neutral"
-          label="open in XR"
-          class="pill"
-          @click="openXr"
         />
       </div>
     </section>
