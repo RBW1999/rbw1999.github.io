@@ -12,7 +12,7 @@ const socials = [
 <template>
   <footer
     id="about"
-    class="mx-auto flex w-[min(940px,calc(100%_-_48px))] flex-wrap items-center justify-between gap-6 pt-[40px] text-lg leading-[normal] max-[760px]:w-[calc(100%_-_24px)] max-[760px]:text-sm"
+    class="page-container flex flex-wrap items-center justify-between gap-6 pt-[40px] text-lg leading-[normal] max-[760px]:text-sm"
   >
     <p class="m-0">© {{ currentYear }} Rafael Wortmann</p>
 

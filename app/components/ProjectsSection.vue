@@ -10,7 +10,7 @@ defineProps<{
   <section
     id="projects"
     aria-labelledby="projects-title"
-    class="relative mx-auto w-[min(940px,calc(100%_-_48px))] border-t-[0.5px] border-white py-[60px] max-[760px]:w-[calc(100%_-_24px)] max-[760px]:py-[40px]"
+    class="page-container relative border-t-[0.5px] border-white py-[60px] max-[760px]:py-[40px]"
   >
     <h2
       id="projects-title"

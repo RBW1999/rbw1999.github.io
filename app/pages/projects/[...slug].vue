@@ -37,7 +37,7 @@ const formattedDate = computed(() => {
 <template>
   <div
     v-if="project"
-    class="mx-auto w-[min(940px,calc(100%_-_48px))] py-12 max-[760px]:w-[calc(100%_-_24px)] max-[760px]:py-8"
+    class="page-container py-12 max-[760px]:py-8"
   >
     <NuxtLink
       to="/#projects"
