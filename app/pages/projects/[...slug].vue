@@ -1,24 +1,32 @@
 <script setup lang="ts">
 const route = useRoute();
 
-const { data: project } = await useAsyncData(() =>
+const rawSlug = Array.isArray(route.params.slug)
+  ? route.params.slug.join("/")
+  : route.params.slug;
+
+const slug = (rawSlug ?? "").replace(/^\/+|\/+$/g, "");
+
+const { data: project } = await useAsyncData(`project-${slug}`, () =>
   queryCollection("projects")
-    .path(`/projects/${route.params.slug}`)
+    .path(`/projects/${slug}`)
     .first(),
 );
 
-if (!project.value) {
+const projectData = project.value;
+
+if (!projectData) {
   throw createError({ statusCode: 404, statusMessage: "Project not found" });
 }
 
 useSeoMeta({
-  title: `${project.value.title} — rbw1999`,
-  description: project.value.description,
+  title: `${projectData.title} — rbw1999`,
+  description: projectData.description,
 });
 
 const formattedDate = computed(() => {
-  if (!project.value?.date) return "";
-  return new Date(project.value.date).toLocaleDateString("en-US", {
+  if (!projectData?.date) return "";
+  return new Date(projectData.date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -27,69 +35,41 @@ const formattedDate = computed(() => {
 </script>
 
 <template>
-  <div v-if="project">
-    <!-- Project Hero -->
-    <section class="border-b">
-      <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
-        <NuxtLink
-          to="/"
-          class="inline-flex items-center gap-1 text-sm text-text-muted hover:text-primary transition-colors"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Back to projects
-        </NuxtLink>
+  <div
+    v-if="project"
+    class="page-container py-12 max-[760px]:py-8"
+  >
+    <NuxtLink
+      to="/projects"
+      class="inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-accent"
+    >
+      <UIcon name="i-lucide-arrow-left" class="size-4" />
+      Back to projects
+    </NuxtLink>
 
-        <div class="mt-6">
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span
-              v-for="tag in project.tags"
-              :key="tag"
-              class="inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
-            >
-              {{ tag }}
-            </span>
-          </div>
+    <header class="mt-8 border-b-[0.5px] border-white/50 pb-8">
+      <ProjectTags v-if="project.tags?.length" :tags="project.tags" class="mb-4" />
 
-          <h1 class="text-3xl font-bold text-text sm:text-4xl">
-            {{ project.title }}
-          </h1>
-          <p class="mt-2 text-lg text-primary font-medium">
-            {{ project.headline }}
-          </p>
-          <p v-if="formattedDate" class="mt-2 text-sm text-text-muted">
-            {{ formattedDate }}
-          </p>
-        </div>
-      </div>
-    </section>
+      <h1 class="text-3xl font-bold text-white sm:text-4xl">
+        {{ project.title }}
+      </h1>
+      <p v-if="project.headline" class="mt-2 text-lg font-medium text-accent">
+        {{ project.headline }}
+      </p>
+      <p v-if="formattedDate" class="mt-2 text-sm text-white/60">
+        {{ formattedDate }}
+      </p>
+    </header>
 
-    <!-- Project Image -->
-    <section v-if="project.image" class="border-b border-border">
-      <div class="mx-auto max-w-4xl px-4 sm:px-6">
-        <img
-          :src="project.image"
-          :alt="project.title"
-          class="w-full rounded-xl object-cover"
-        />
-      </div>
-    </section>
+    <img
+      v-if="project.image"
+      :src="project.image"
+      :alt="project.title"
+      class="mt-8 w-full rounded-[20px] border-[0.5px] border-hairline object-cover"
+    />
 
-    <!-- Project Content -->
-    <section class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-      <ContentRenderer :value="project" class="prose prose-lg max-w-none" />
-    </section>
+    <div class="mt-8 max-w-none text-white/80">
+      <ContentRenderer :value="project" />
+    </div>
   </div>
 </template>

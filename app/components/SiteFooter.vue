@@ -1,23 +1,48 @@
 <script setup lang="ts">
+const site = useAppConfig().site;
 const currentYear = new Date().getFullYear();
+
+const socials = [
+  { label: "GitHub", icon: "i-simple-icons-github", to: site.github },
+  { label: "LinkedIn", icon: "i-simple-icons-linkedin", to: site.linkedin },
+  {
+    label: "ArtStation",
+    icon: "i-simple-icons-artstation",
+    to: site.artstation,
+  },
+  { label: "Itch.io", icon: "i-simple-icons-itchdotio", to: site.itch },
+];
 </script>
 
 <template>
-  <footer class="border-t border-border bg-surface-alt">
-    <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
-      <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
-        <p class="text-sm text-text-muted">
-          &copy; {{ currentYear }} rbw1999. All rights reserved.
-        </p>
-        <nav class="flex gap-4">
-          <NuxtLink to="/imprint" class="text-sm text-text-muted hover:text-text transition-colors">
-            Imprint
-          </NuxtLink>
-          <NuxtLink to="/contact" class="text-sm text-text-muted hover:text-text transition-colors">
-            Contact
-          </NuxtLink>
-        </nav>
-      </div>
+  <footer
+    id="about"
+    class="page-container flex flex-wrap items-center justify-between gap-6 pt-[40px] text-lg leading-[normal] max-[760px]:text-sm"
+  >
+    <p class="m-0">© {{ currentYear }} Rafael Wortmann</p>
+
+    <div class="flex gap-[23px] max-[450px]:order-3 max-[450px]:w-full">
+      <NuxtLink to="/imprint" class="transition-colors hover:text-accent">
+        Imprint
+      </NuxtLink>
+      <NuxtLink to="/about" class="transition-colors hover:text-accent">
+        About
+      </NuxtLink>
+    </div>
+
+    <div class="flex items-center gap-[15px]">
+      <a
+        v-for="social in socials"
+        :key="social.label"
+        :href="social.to"
+        target="_blank"
+        rel="noopener noreferrer"
+        :aria-label="social.label"
+        :title="social.label"
+        class="flex size-[22px] items-center justify-center rounded-full bg-[#d9d9d9] text-black transition-colors hover:bg-accent"
+      >
+        <UIcon :name="social.icon" class="size-[14px]" />
+      </a>
     </div>
   </footer>
 </template>
