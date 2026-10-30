@@ -1,15 +1,11 @@
 <script setup lang="ts">
 const route = useRoute();
 
-const rawSlug = Array.isArray(route.params.slug)
-  ? route.params.slug.join("/")
-  : route.params.slug;
+const projectSlug = String(route.params.project ?? "");
 
-const slug = (rawSlug ?? "").replace(/^\/+|\/+$/g, "");
-
-const { data: project } = await useAsyncData(`project-${slug}`, () =>
+const { data: project } = await useAsyncData(`project-${projectSlug}`, () =>
   queryCollection("projects")
-    .path(`/projects/${slug}`)
+    .path(`/projects/${projectSlug}`)
     .first(),
 );
 

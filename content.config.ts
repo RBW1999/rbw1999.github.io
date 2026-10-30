@@ -15,7 +15,7 @@ export default defineContentConfig({
     }),
     projects: defineCollection({
       type: "page",
-      source: "projects/**/*.md",
+      source: "projects/*/index.md",
       schema: z.object({
         title: z.string(),
         headline: z.string(),
@@ -24,6 +24,17 @@ export default defineContentConfig({
         image: z.string(),
         hidden: z.boolean(),
         date: z.string(),
+      }),
+    }),
+    projectSubpages: defineCollection({
+      type: "page",
+      source: {
+        include: "projects/*/*.md",
+        exclude: ["projects/*/index.md"],
+      },
+      schema: z.object({
+        title: z.string(),
+        description: z.string(),
       }),
     }),
   },
