@@ -1,10 +1,10 @@
 ---
 title: "Project Beta"
 headline: "E-commerce platform reimagined"
-description: "A headless e-commerce solution with sub-second page loads, personalized recommendations, and seamless checkout."
+description: "An example project"
 tags: [ecommerce, nuxt, headless, performance]
 image: "/assets/project-dashboard.png"
-hidden: false
+hidden: true
 date: "2026-06-20"
 ---
 
