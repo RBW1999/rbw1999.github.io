@@ -17,3 +17,5 @@ clean design.
 - [LinkedIn](https://www.linkedin.com/in/rafael-wortmann-81655b139/)
 - [ArtStation](https://www.artstation.com/rafaelwortmann)
 - [Itch.io](https://rafaelwortmann.itch.io/)
+
+|| This content ist WIP and will be updated soon. ||

@@ -16,3 +16,5 @@ An overview of my work across immersive technology, design, and the web.
 ## Timeline
 
 Experience entries will be added here.
+
+|| This content ist WIP and will be updated soon. ||
